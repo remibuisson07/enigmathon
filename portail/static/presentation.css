@@ -1,0 +1,155 @@
+/*
+présentation générale CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+
+body
+{
+    font-family: 'Courier New';
+    background-color: #fddc83;
+    width: 1300px;
+    min-width: 800px;
+    min-height: 1000px;
+
+}
+
+
+
+header
+{
+    display : flex;
+    justify-content: space-around;
+    background-color: #4ea585;
+    color : #14222b;
+    align-items: center;
+    min-height: 60px;
+}
+
+.home img:first-child {
+    display: block;
+}
+
+.home img:last-child {
+    display: none; 
+}
+.home:hover img:last-child {
+    display: block;
+}
+.home:hover img:first-child {
+    display: none; 
+}
+
+.bandeau{
+    font-size : 2.5em;
+}
+
+nav
+{
+    margin-top: 20px;
+    background-color : #7bb7a1;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 45px;
+}
+
+ /*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+
+h1 {
+    font-size: 2em;
+}
+
+em {
+    font-style: italic;
+}
+
+span {
+    background-color: none;
+    font-size: inherit;
+    color: inherit;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover
+{
+    font-weight: bold;
+}
+
+ /*  SPECIFIQUES
+ -------------------------------------------------------------------------- */
+ #presentation
+{
+    background-image: url('CreativeHead72.jpg');
+    background-position: top right;
+    background-repeat: no-repeat;
+
+}
+
+ #parties{
+    
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1300px;
+    margin-left: 40px;
+    text-align: justify;
+}
+
+.bienvenue{
+    width:700px;
+    height: 130px;
+    padding:20px;
+    background-image: url('MazeYellow72.jpg');
+    box-shadow: 2px 2px 5px;
+}
+
+.collapsible{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.titre{
+    width: 50%;
+    padding:10px;
+    font-size: 2em;
+    font-weight: bold;
+    background-color: #ee765e;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+.btn{
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.contenu{
+    width: 80%;
+    border: none;
+    margin-top: 10px;
+    font-size: 1.3em;
+    box-shadow: 2px 2px 8px black;
+    padding: 20px;
+    background-color: #ed9e8e;
+    border-radius: 8px;
+}
+
+
+
+
+ /* FENETRES DE MESSAGES
+----------------------------------------------------------------*/
+
+

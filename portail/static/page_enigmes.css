@@ -1,0 +1,302 @@
+/*
+page des énigmes CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+body
+{
+    font-family: 'Courier New';
+    width: 1300px;
+    min-width: 800px;
+
+}
+
+
+
+header{
+    display : flex;
+    justify-content: space-around;
+    background-color: #416259;
+    color : #caac55;
+    align-items: center;
+    min-height: 70px;
+}
+
+.home img:first-child {
+    display: block;
+}
+
+.home img:last-child {
+    display: none; 
+}
+.home:hover img:last-child {
+    display: block;
+}
+.home:hover img:first-child {
+    display: none; 
+}
+
+
+.titre {
+   font-size: 2.5em;
+}
+
+.login img:first-child {
+    display: block; 
+}
+.login img:last-child {
+    display: none; 
+}
+.login:hover img:last-child {
+    display: block;
+}
+.login:hover img:first-child {
+    display: none; 
+}
+
+
+nav
+{
+    margin-top: 30px;
+    background-color : #598579;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
+}
+
+ /*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+
+em
+{
+	font-style: italic;
+}
+
+strong
+{
+	font-weight: bold;
+}
+
+h2,h3
+{
+	color: #322511;
+}
+sup{
+	font-size: 0.7em;
+}
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover
+{
+    font-weight: bold;
+}
+
+/* SPECIFIQUES
+-------------------------------------------------------------*/
+
+
+#elt_chapitres
+{
+	background-color: #6bad7f;
+	padding: 15px;
+	margin: 30px;
+	margin-left: 70px;
+	height: 750px;
+	width: 1200px;
+	box-shadow: 0px 0px 6px black;
+	border-radius: 10px;
+	
+} 
+.menu{
+	height: 730px;
+	overflow: auto;
+}
+
+.illustration{
+	
+	float: right;
+	box-shadow: 4px 4px 6px black;
+	background-color: black;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+.prerequis
+{
+	width: 600px;
+	font-style: 1.1em;
+	color: rgb(70,70,100);
+	padding: 10px;
+	height: 50px;
+}
+
+.introduction
+{
+	width: 600px;
+	color: black;
+	font-size: 1.5em;
+	padding: 10px;
+	text-align: justify;
+	margin-bottom: 20px;
+
+}
+
+.questions
+{
+	padding: 15px;
+	text-align: justify;
+}
+.statut_joueur
+{
+	font-style: italic;
+	text-align: justify;
+	color: #fce57c;
+	margin-bottom: 40px;
+}
+
+#eltJoueur
+{
+	display: flex;
+	flex-direction: line;
+	justify-content:center;
+	padding: 15px;
+	margin-left: 70px;
+	height: 300px;
+	width: 1200px;
+}
+.repondre{
+
+	padding:15px;
+	width: 600px;
+	margin-right: 15px;
+	background-color:#416259;
+	box-shadow: 4px 4px 6px black;
+	border-radius: 10px;
+}
+
+.ligne{
+    width: 350px;
+    display: table;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 50px;
+
+}
+.label{
+    font-size: 1.2em;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.form-control{
+    font-size: 1.2em;
+    width: 80px;
+    margin-left: 30px;
+    background-color: rgb(255,252,234);
+    color: black;
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 5px;
+
+}
+.erreur{
+    color: rgb(250,120,95);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.button {
+	width: 50px;
+	height: 30px;
+	margin-left: 270px;
+	background-color:rgb(255,252,234);
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 3px 3px 12px black;
+	border-radius: 5px;
+
+}
+.button:hover{
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 3px 3px 22px black;
+}
+
+.achat
+{
+	padding:15px;
+	width: 600px;
+	margin-left: 15px;
+	background-color: #caac55;
+	text-align: justify;
+	box-shadow: 4px 4px 6px black;
+	border-radius: 10px;
+}
+.pieces{
+
+	float: right;
+	margin-left: 10px;
+	margin-top: 80px;
+}
+.connectezvous{
+	width: 1200px;
+	height: 200px;
+	background-image: url('connectezvous72.jpg');
+	background-repeat: no-repeat;
+	color: black;
+	margin-left: 80px;
+	box-shadow: 0px 0px 6px black;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+}
+/* FENETRES DE MESSAGES 
+----------------------------------------------------------------*/
+
+#confirmation_deconnexion{
+    display: none;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 50; 
+}
+#confirmation_deconnexion:target{
+    display: block;
+}
+
+#fenetre_message
+{
+    background-color: rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 50; 
+}
+.msg{
+	padding:20px;
+    width: 500px;
+    margin: 25% auto;
+    background-color: white;
+    text-align: center;
+    font-size: 1.1em;
+	font-weight: bold;
+	color: rgb(178,94,26);
+	border-radius: 10px;
+    border: 6px rgb(160,160,160) solid;
+}
+.close, .abort {
+    padding: 5px;
+    margin: 15px;
+    border: solid white;
+}
+.close:hover, .abort:hover {
+    cursor: pointer;
+    border: solid rgb(178,94,26);
+    background-color: rgb(241,204,171)
+
+}

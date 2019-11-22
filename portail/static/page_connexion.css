@@ -1,0 +1,238 @@
+/*
+page des connexion CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+
+body{
+    font-family: 'Courier New';
+    background-color: #e7e0d6;
+    width: 1300px;
+    min-width: 800px;
+
+}
+
+
+
+header{
+    width: 1200px;
+    display : flex;
+    justify-content: space-around;
+    background-color: #416259;
+    color : #caac55;
+    align-items: center;
+    min-height: 70px;
+
+}
+
+
+.home img:first-child {
+    display: block;
+}
+.home img:last-child {
+    display: none; 
+}
+.home:hover img:last-child {
+    display: block;
+}
+.home:hover img:first-child {
+    display: none; 
+}
+
+
+.bandeau{
+    font-size : 2.5em;
+}
+
+nav{
+    width: 1200px;
+    margin-top: 30px;
+    background-color : #598579;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
+}
+
+/*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+h2{
+    font-size: 1.5em;
+    color: rgb(36,60,16);
+}
+
+
+/* SPECIFIQUES
+-------------------------------------------------------------*/
+
+#parties{
+	width: 1000px;
+	height: 450px;
+    display:flex;
+    justify-content:center;
+	margin: auto;
+    margin-top: 50px;
+	
+}
+
+.connexion {
+    
+    width: 500px;
+    height: 450px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+    border: solid black;
+    border-right: none;
+    border-radius: 30px 0px 0px 30px;
+
+}
+
+
+
+.ligne{
+    width: 100%;
+    display: table;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 50px;
+
+}
+.label{
+    font-size: 1.2em;
+    width: 200px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.form-control{
+    font-size: 1.2em;
+    width: 250px;
+    background-color: rgb(255,252,234);
+    color: black;
+    height: 40px;
+    vertical-align: middle;
+}
+.button{
+    visibility: hidden;
+}
+
+.erreur {
+    font-size: 1.2em;
+    color: rgb(147,20,29);
+}
+.connected{
+    height: 450px;
+    width: 450px;
+    border: solid black;
+    border-left: none;
+    border-radius: 0px 30px 30px 0px;
+}
+
+.inscription_table{
+    width:240px;
+    height: 40px;
+    margin-left: 200px;
+    display: table;
+    border: solid rgb(213,196,126);
+    border-radius: 5px;
+    
+}
+
+.inscription{
+    display: table-cell;
+    vertical-align: middle;
+    background-color: rgb(213,196,126);
+    box-shadow: 3px 3px 5px black;
+    text-align: center;
+    padding: 5px;
+    font-size: 1.2em;
+    color: rgb(36,60,16);
+    font-weight: bold;
+
+}
+
+.inscription:hover {
+    background-color: rgb(220,203,133);
+    cursor: pointer;
+    
+}
+
+
+
+/* FENETRES DE MESSAGE
+--------------------------------------------------------*/
+#fenetre_message{
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 50; 
+
+}
+.msg{
+	padding:20px;
+    width: 500px;
+    margin: 25% auto;
+    background-color: white;
+    text-align: center;
+	font-weight: bold;
+	color: rgb(178,94,26);
+    border-radius: 10px;
+    border: 6px rgb(160,160,160) solid;
+}
+
+em{
+    font-weight: normal;
+    font-size: 1em;
+    text-decoration: none;
+    color: rgb(120,120,120);
+}
+
+.first{
+    text-align: center;
+    font-weight: normal;
+    color: rgb(120,120,120);
+}
+.label-1{
+    font-size: 1.1em;
+    width: 220px;
+    display: table-cell;
+    vertical-align: middle;
+    color: inherit;
+}
+.form-control-1{
+    font-size: 1.1em;
+    width: 80px;
+    background-color: rgb(255,252,234);
+    color: black;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.validation{
+    display: table-cell;
+    vertical-align: middle;
+    width: 40px;
+    height: 30px;
+    margin: auto;
+    font-weight: bold;
+    text-align: center;
+    color: #734542;
+    background-color: rgb(233,218,192);
+    border: solid white;
+    border-radius: 4px;
+}
+.validation:hover{
+    cursor: pointer;
+    border: solid rgb(178,94,26);
+    background-color: rgb(241,204,171)
+
+}
+

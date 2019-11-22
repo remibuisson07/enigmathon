@@ -1,0 +1,58 @@
+/*
+A propos d'enogmathon CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+
+body
+{
+    width: 800px;
+    font-family: 'Courier New';
+    background-color: #aec18a;
+    height: 800px;
+    background-image: url('mazetry.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+
+ /*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+h2 {
+	color: #aec18a;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: #aec18a;
+	font-size: 1.5em;
+	padding-left: 35%;
+	font-weight: bold;
+}
+a:hover{
+	cursor: pointer;
+	font-weight: normal;
+}
+
+ /* SPECIFIQUES
+-------------------------------------------------------------*/
+.main {
+
+	position: fixed;
+	top: 20%; left: 30%;
+	color: white;
+	width: 40%;
+	min-width: 360px;
+	min-height: 430px;
+	border-radius: 10px;
+	border: solid rgb(83,91,61);
+	margin: auto;
+	padding: 15px;
+	background-color: #598579;
+	overflow: auto;
+}

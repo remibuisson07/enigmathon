@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'presentation.css' %}" />
+    <title>présentation générale</title>
+</head>
+<body>
+
+    <header>
+            <a class="home" href="{% url 'PORTAIL' %}">
+                        <img src="{% static 'Home.png' %}"  title="retour à la page d'Accueil"/>
+                        <img src="{% static 'Homehover.png' %}"  title="retour à la page d'Accueil"/></a>
+            <div class="bandeau"> PRESENTATION </div>
+    </header>
+
+    <div id="presentation">
+
+        <div id="parties">
+
+            <div class="bienvenue">
+                <h1>Bienvenue sur le site ENIGMATHON !</h1>
+                <em>Le site qui vous propose de résoudre des énigmes numériques à l’aide de Python</em>
+            </div>
+
+
+
+            <div class="collapsible">
+                {% for fenetre in texts %}
+                    <form action="" method='GET'>
+                        {% csrf_token %}
+                        <div class="titre">
+                            {{ fenetre.titre }}
+                            {% if fenetre.collapsed %}
+                                <button  type="submit" class="btn" name={{ fenetre.titre }} value="scroll">
+                                    <img src="{% static 'scroll.png' %}">
+                                </button>
+                            {% else %}
+                                <button  type="submit" class="btn" name={{ fenetre.titre }} value="scroll">
+                                    <img src="{% static 'scroll_up.png' %}">
+                                </button>
+                            {% endif %}
+                        </div>
+                    </form>
+                    {% if not fenetre.collapsed %}
+                        <div class="contenu">{{ fenetre.contenu | safe }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <footer>
+            <nav>
+                <a href="{% url 'PYTHON' %}" title="infos sur Python"> A propos de Python </a>
+                <a href="https://repl.it"  target="_blank"> REPL.IT </a>
+                <a href="{% url 'A PROPOS' %}" title="à propos d'Enigmathon"> A propos d'Enigmathon </a>
+            </nav>
+    </footer>
+
+
+</body>
+</html>
+

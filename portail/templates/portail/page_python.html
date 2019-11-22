@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'page_python.css' %}" />
+    <title>A propos de Python</title>
+</head>
+<body>
+        <header>
+
+                <a class="home" href="{% url 'PORTAIL' %}">
+                        <img src="{% static 'Home.png' %}"  title="retour à la page d'Accueil"/>
+                        <img src="{% static 'Homehover.png' %}"  title="retour à la page d'Accueil"/>
+                </a>
+
+                <div class="bandeau"> A propos de Python </div>
+        </header>
+
+
+
+            <div class="collapsible">
+                <form action="" method='GET'>
+                                {% csrf_token %}
+                                {% if text.collapsed %}
+                                    <button  class="titreinactif" type="submit" name="infos" value="scroll">
+                                                <p>Informations générales</p></button>
+                                {% else %}
+                                     <button  class="titreactif" type="submit"  name="infos" value="scroll">
+                                                <p>Informations générales</p></button>
+                                {% endif %}
+                </form>
+
+                <form action="" method='GET'>
+                                {% csrf_token %}
+
+                                {% if text.collapsed %}
+                                    <button  class="titreactif" type="submit" name="infos" value="scroll">
+                                                <p>Memento Python</p></button>
+                                {% else %}
+                                     <button  class="titreinactif" type="submit"  name="infos" value="scroll">
+                                                <p>Memento Python</p></button>
+                                {% endif %}
+                </form>
+
+            </div>
+
+            <div class="main">
+
+            {% if text.collapsed %}
+                    <div class="Memento">
+                        <object data="{% static 'Memento.pdf' %}" type="application/pdf"
+                                width=100% height=100% >
+
+                        </object>
+                    </div>
+            {% else %}
+                    <div class="Texte">
+                        {{ text.contenu | safe }}
+                    </div>
+            {% endif %}
+
+            </div>
+
+
+        <footer>
+                <nav>
+                    <div> Contacter l'administrateur: enigmathon@gmail.com</div>
+                </nav>
+        </footer>
+
+</body>
+</html>

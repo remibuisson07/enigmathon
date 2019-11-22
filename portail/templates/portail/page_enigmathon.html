@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'page_enigmathon.css' %}" />
+    <title>A propos d'ENIGMATHON</title>
+</head>
+<body>
+
+    <div class="main">
+        {{ text.contenu | safe }}
+        <a class="close" href="{% url 'PORTAIL' %}"> RETOUR ACCUEIL </a>
+    </div>
+
+</body>
+</html>

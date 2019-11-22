@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'page_infos.css' %}" />
+    <title>informations personnelles</title>
+</head>
+
+
+<body>
+
+        <header>
+                <a class="home" href="{% url 'PORTAIL' %}">
+                        <img src="{% static 'Home.png' %}"  title="retour à la page d'Accueil"/>
+                        <img src="{% static 'Homehover.png' %}"  title="retour à la page d'Accueil"/></a>
+
+                <div class="bandeau"> INFORMATIONS PERSONNELLES </div>
+        </header>
+
+
+        <div id="informatif">
+            <img class="profil" src="{% static 'profil72.jpg' %}"/>
+            <h2>Informations personnelles</h2>
+            <div class="pseudo">
+                {{user.username}}
+            </div>
+            <br/>
+            <div class="score">
+                Score <span>{{ joueur.score }}</span>
+            </div>
+            <div class="niveau">
+                Niveau: {{joueur.niveau}}
+            </div>
+            <div class="nom">
+                  <p> Prénom: {% if user.first_name %}
+                        {{ user.first_name }}
+                  {% else %}
+                      <em>pas de prénom connu</em>
+                      {% endif %}</p>
+                  <p>Nom: {% if user.last_name %}
+                        {{ user.last_name }}
+                  {% else %}
+                      <em>pas de nom connu</em>
+                  {% endif %}</p>
+            </div>
+            <div class="stat">
+                {% if joueur.nb_reponses_donnees %}
+                    votre pourcentage de réussite est de {{ reussite  }} %
+                {% else %}
+                <em>votre pourcentage de réussite n'est pas encore connu</em>
+                {% endif %}
+            </div>
+            <div class="infos_connection">
+                <p>votre dernier score a été obtenu le {{joueur.date_lastscore }}</p>
+            </div>
+
+        </div>
+
+
+        <div id="modificatif">
+            <h2>Modifier mon profil</h2>
+            <div class="collapsible">
+                {% for fenetre in texts %}
+
+                    {% if fenetre.titre == "Pseudo" %}
+                        <form action="" method='GET'>
+                            {% csrf_token %}
+                            <div class="titre">
+                                    <button  type="submit" class="btn" name="Pseudo" value="scroll">
+                                        <p>Modifier {{ fenetre.titre }}</p>
+                                    </button>
+                            </div>
+                        </form>
+                        {% if not fenetre.collapsed %}
+
+                            <form class="fiche" method="post" action="{% url 'INFOS' %}">
+                                <div class="contenu">{{ fenetre.contenu | safe }}</div>
+                                {% csrf_token %}
+                                {% for field in changepseudo %}
+
+                                    <div class="ligne">
+                                        <div class="label">{{ field.label_tag }}</div>
+                                        <div class="box">{{ field }}</div>
+                                    </div>
+
+                                {% endfor %}
+
+                                <div class="erreur">
+                                    {{ changepseudo.non_field_errors.as_text }}
+                                </div>
+                                <input class="validation" type="submit" value="OK" />
+                            </form>
+
+                        {% endif %}
+                    {% endif %}
+
+                    {% if fenetre.titre == "mot de passe" %}
+                        <form action="" method='GET'>
+                            {% csrf_token %}
+                            <div class="titre">
+                                    <button  type="submit" class="btn" name="mot de passe" value="scroll">
+                                        <p>Modifier {{ fenetre.titre }}</p>
+                                    </button>
+                            </div>
+                        </form>
+                        {% if not fenetre.collapsed %}
+
+                            <form class="fiche" method="post" action="{% url 'INFOS' %}">
+                                <div class="contenu">{{ fenetre.contenu | safe }}</div>
+                                {% csrf_token %}
+                                {% for field in changepassword %}
+
+                                    <div class="ligne">
+                                        <div class="label2">{{ field.label_tag }}</div>
+                                        <div class="box">{{ field }}</div>
+                                    </div>
+
+                                {% endfor %}
+
+                                <div class="erreur">
+                                    {{ changepassword.non_field_errors.as_text }}
+                                </div>
+                                <input class="validation" type="submit" value="OK" />
+                            </form>
+
+                        {% endif %}
+                    {% endif %}
+
+                    {% if fenetre.titre == "prénom et nom" %}
+                        <form action="" method='GET'>
+                            {% csrf_token %}
+                            <div class="titre">
+                                    <button  type="submit" class="btn" name="prénom et nom" value="scroll">
+                                        <p>Modifier {{ fenetre.titre }}</p>
+                                    </button>
+                            </div>
+                        </form>
+                        {% if not fenetre.collapsed %}
+
+                            <form class="fiche" method="post" action="{% url 'INFOS' %}">
+                                <div class="contenu">{{ fenetre.contenu | safe }}</div>
+                                {% csrf_token %}
+                                {% for field in changename %}
+
+                                    <div class="ligne">
+                                        <div class="label">{{ field.label_tag }}</div>
+                                        <div class="box">{{ field }}</div>
+                                    </div>
+
+                                {% endfor %}
+
+                                <div class="erreur">
+                                    {{ changename.non_field_errors.as_text }}
+                                </div>
+                                <input class="validation" type="submit" value="OK" />
+                            </form>
+
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% if message %}
+                <div id="fenetre_message">
+                    <div class="msg">
+                        <p> {{ message | safe}} </p>
+                        <a href="{% url 'INFOS' %}"><p class="OK">OK</p> </a>
+                    </div>
+                </div>
+        {% endif %}
+
+        <footer>
+                <nav>
+                    <div> Contacter l'administrateur: enigmathon@gmail.com</div>
+                </nav>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'portail.css' %}" />
+    <title>bienvenue</title>
+</head>
+
+<style>
+      .lettres { position: relative; top: {{y}}px; left: {{x}}px; }
+</style>
+<body>
+
+<div id="fond">
+
+        <div class="lettres">
+
+                <p class="elt">E</p>
+                <p class="elt">N</p>
+                <p class="elt">I</p>
+                <p class="elt">G</p>
+                <p class="elt">M</p>
+                <p class="elt">A</p>
+                <p class="elt">T</p>
+                <p class="elt">H</p>
+                <a href="{% url 'PORTAIL' %}">O</a>
+                <p class="elt">N</p>
+        </div>
+</div>
+
+</body>
+</html>

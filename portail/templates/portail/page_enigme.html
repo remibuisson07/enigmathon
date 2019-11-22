@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'page_enigmes.css' %}" />
+    <title>{{chapitre.nom}}</title>
+</head>
+
+<body>
+<style>
+body
+    {background-color: {{ backgroundcolor }};}
+</style>
+     <div id="page_enigmes">
+
+
+
+            <header>
+                <a class="home" href="{% url 'PORTAIL' %}">
+                        <img src="{% static 'Home.png' %}"  title="retour à la page d'Accueil"/>
+                        <img src="{% static 'Homehover.png' %}"  title="retour à la page d'Accueil"/></a>
+
+                <div class="titre">{{ chapitre.nom | safe }}</div>
+
+                {% if connect %}
+                <div> Bienvenue  {{ user.username }} </div>
+                <div class="login">
+                        <a href="#confirmation_deconnexion" title="déconnexion">
+                            <img  src=" {% static 'LoginButtonRed.png' %}"
+                                 alt="je me déconnecte"/>
+                            <img  src=" {% static 'LoginButtonRedHover.png' %}"
+                                 alt="je me déconnecte"/>
+                        </a>
+                </div>
+
+                {% else %}
+                <div class="login">
+                        <a href="{% url 'CONNEXION' %}" title="connexion">
+                            <img  src=" {% static 'LoginButtonGreen.png' %}" alt="je me connecte"/>
+                            <img  src=" {% static 'LoginButtonGreenHover.png' %}" alt="je me connecte"/>
+                        </a>
+                </div>
+                {% endif %}
+
+            </header>
+
+
+
+             <div id="elt_chapitres">
+                 <div class="menu">
+
+                     <div class="illustration"> {% if chapitre.illustration %}
+                            <img src="{{ chapitre.illustration.url }}" alt="illustration du chapitre"/> {% endif %}</div>
+
+                     <div class="prerequis"> prérequis: <em>{{chapitre.prerequis}}</em> </div>
+
+                     {% if chapitre.introduction %}
+                     <div class="introduction"> <strong>{{chapitre.introduction | safe }}</strong></div>
+                     {% endif %}
+
+                     <div class="questions">
+                        {% if connect %}
+
+                            {% for question in enigmes %}
+                                <p> <strong>Question {{question.numero}} ({{ question.points }} points):</strong>
+                                    {{question.texte | safe}} </p>
+
+
+                                <div class="statut_joueur">
+                                {% for es in enigme_etats %}
+                                    {% if es.numero == question.numero %}
+                                        {% if es.status == -1 %}
+                                            <p> <em> vous n'avez malheureusement pas trouvé la bonne réponse</em></p>
+                                        {% elif es.status == -2 %}
+                                            <p> <em> la bonne réponse était {{ question.reponse }}</em></p>
+                                        {% elif es.status == 0  %}
+                                            <p> <em> BRAVO vous avez trouvé la bonne réponse, qui était {{ question.reponse }}</em></p>
+                                        {% else %}
+                                            <p> <em> vous avez encore {{ es.status }} tentative(s) </em></p>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+                            {% endfor %}
+
+                         {% else %}
+
+                            {% for question in enigmes %}
+                                <p> <strong>Question {{question.numero}}: </strong>{{question.texte}}
+                                <strong> ({{ question.points }} points)</strong></p>
+                                <div class="statut_joueur"> <em> vous avez encore 3 tentatives </em></div>
+                            {% endfor %}
+
+                         {% endif %}
+                     </div>
+
+                 </div>
+              </div>
+
+
+
+             {% if connect %}
+                    <div id="eltJoueur">
+
+                          <div class="repondre">
+                                <h2> Proposer une réponse</h2>
+                                    {% if message %}
+                                        <div id="fenetre_message">
+                                            <div class="msg">
+                                                <p> {{ message | safe}} </p>
+                                                <a class="close" href="{% url 'ENIGME' chapitre.id %}">OK</a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <form  method="post" action=".">
+                                        {% csrf_token %}
+                                        {% for field in RepForm %}
+
+                                             <div class="ligne">
+                                                <div class="label">{{ field.label_tag }}</div>
+                                                <div>{{ field }}</div>
+                                             </div>
+
+                                        {% endfor %}
+
+                                        <input class="button" type="submit" value="OK" />
+                                    </form>
+
+
+                          </div>
+
+
+                          <div class="achat">
+                                <h3> Acheter une réponse</h3>
+                                     <img class="pieces" src="{% static 'coins.png' %}" alt="pièces de monnaie"/>
+                                     <p> Indiquer le numéro de la question dont vous souhaitez connaitre la réponse.
+                                        Le prix de cet achat correspond au nombre de points alloué à la question</p>
+
+                                    <form  method="post" action=".">
+                                        {% csrf_token %}
+                                        {% for field in achat %}
+                                             <div class="ligne">
+                                                <div class="label">{{ field.label_tag }}</div>
+                                                <div>{{ field }}</div>
+                                             </div>
+
+                                        {% endfor %}
+
+                                        <input class="button" type="submit" value="OK" />
+                                    </form>
+
+
+                                     {% if message_achat %}
+                                        <div id="fenetre_message">
+                                            <div class="msg">
+                                                <p> {{ message_achat }} </p>
+                                                <a class="close" href="{% url 'ENIGME' chapitre.id %}">OK</a>
+                                            </div>
+                                        </div>
+                                     {% endif %}
+                          </div>
+
+                    </div>
+
+              {% else %}
+                        <div class="connectezvous"><br/><br/>CONNECTEZ-VOUS POUR JOUER !</div>
+              {% endif %}
+
+
+
+
+
+            <footer>
+                <nav>
+                    <a href="{% url 'PYTHON' %}" title="infos sur Python"> A propos de Python </a>
+                    <a href="https://repl.it"  target="_blank"> REPL.IT </a>
+                    <a href="{% url 'A PROPOS' %}" title="à propos d'Enigmathon"> A propos d'Enigmathon </a>
+                </nav>
+            </footer>
+     </div>
+
+
+     <div id="confirmation_deconnexion">
+                <div class="msg">
+                    <p>Je confirme la déconnexion</p>
+                    <a class="close" href="{% url 'DECONNEXION' %}">OUI</a>
+                    <a class="abort" href="#Abort">NON</a>
+                </div>
+     </div>
+
+
+
+</body>
+</html>

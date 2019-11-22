@@ -1,0 +1,60 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'palmares.css' %}" />
+    <title>palmares</title>
+</head>
+<body>
+    <header>
+            <a class="home" href="{% url 'PORTAIL' %}">
+                        <img src="{% static 'Home.png' %}"  title="retour à la page d'Accueil"/>
+                        <img src="{% static 'Homehover.png' %}"  title="retour à la page d'Accueil"/></a>
+            <div class="bandeau"> PALMARES </div>
+    </header>
+
+    <div id="main">
+
+
+        <img class="podium" title="image du podium" src="{% static 'podium72.jpg' %}"/>
+
+        {% if listepalmares %}
+                <table class="tableau">
+                    <thead>
+                        <tr>
+                            <th>SCORE</th>
+                            <th>PSEUDO</th>
+                            <th>NIVEAU</th>
+                            <th>PRENOM</th>
+                            <th>NOM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for joueur in listepalmares %}
+                        <tr>
+                            <td>{{ joueur.score }}</td>
+                            <td>{{ joueur.user.username }}</td>
+                            <td>{{ joueur.niveau }}</td>
+                            <td> {% if joueur.user.first_name %}
+                                    {{joueur.user.first_name }} {% else %} / {% endif %}</td>
+                            <td> {% if joueur.user.last_name %}
+                                    {{joueur.user.last_name }} {% else %} / {% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+        {% else %}
+            <div class="vide">Soyez le premier à inscrire votre Pseudo en haut de l'affiche!</div>
+        {% endif %}
+    </div>
+
+    <footer>
+            <nav>
+                <div> Contacter l'administrateur: enigmathon@gmail.com</div>
+            </nav>
+    </footer>
+</body>
+</html>

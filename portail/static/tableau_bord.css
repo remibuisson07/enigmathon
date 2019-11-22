@@ -1,0 +1,306 @@
+/*
+tableau de bord CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+
+body
+{
+    width: 1300px;
+    font-family: 'Courier New';
+    background-color: #aec18a;
+    min-width: 800px;
+    min-height: 1000px;
+
+}
+
+
+
+#tableau_bord
+{
+    background-image: url('mazetry.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+   
+}
+
+header{
+    background-color: #4ea585;
+    color : #14222b;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu{
+    width: 1250px;
+    display: flex;
+    justify-content: space-between;
+}
+.cell_menu{
+    display: table;
+
+}
+
+.titre_page{
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    font-size : 2.5em;
+}
+.presentation{
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+}
+.nom_joueur{
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+}
+
+.login img:first-child {
+    display: block;
+    margin-top: 10px;
+}
+.login img:last-child {
+    display: none; 
+}
+.login:hover img:last-child {
+    display: block;
+    margin-top: 10px;
+}
+.login:hover img:first-child {
+    display: none; 
+}
+
+
+nav
+{
+    margin-top: 20px;
+    background-color : #598579;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 45px;
+}
+
+ /*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+
+ a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+h1{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+h3{
+    color:#322511;
+    font-size: 1.6em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+span{
+    background-color: inherit;
+    padding-left: 140px;
+}
+
+
+/* SPECIFIQUES
+-------------------------------------------------------------*/
+.bienvenue{
+    height: 80px;
+    width: 1000px; 
+    min-width: 800px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 12px black;
+    background-color: #7ca8ab;
+    text-align: center;
+}
+
+#main
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+   
+}
+
+
+.brainfill{
+    float: auto;
+    border-radius: 15px 0px 0px 15px;
+}
+
+
+
+.chapitres{
+    height: 500px;
+    width: 400px;
+    min-width: 300px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction:column;
+    background-color: white;
+    padding-top: 50px;
+    border-radius: 0px 15px 15px 0px;
+
+}
+
+.titre_tableau{
+    font-size: 2em;
+    color: #322511;
+    font-weight: bold;
+
+}
+
+.tableau_chapitres{
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 300px;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    overflow: auto;
+
+}
+
+.titre_chapitre{
+    color: #322511;
+    font-size: 1.4em;
+    margin-top: 10px;
+    width: 270px;
+    height: 25px;
+    padding: 5px;
+    background-color: #8cbee1;
+    border-radius: 10px;
+    text-align: center;
+}
+
+a:hover .titre_chapitre{
+    color: #fbae75;
+    background-color:#023d5f;
+    opacity: 0.75;
+    font-weight: normal;
+    box-shadow: 0px 0px 3px black;
+}
+
+#boxes {
+    display: flex;
+    flex-direction: line;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+.infos_perso{
+    background-color: #ffd35c;
+    padding: 15px;
+    height: 150px;
+    width: 475px;
+    margin-right: 5px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 12px black;
+    overflow: auto;
+}
+.infos_perso p{
+    font-size: 1.5em;
+}
+
+.infos_perso:hover{
+    background-color: rgb(257,213,103);
+    box-shadow: 4px 4px 30px black;
+    font-weight: normal;
+
+}
+.connectez_vous{
+    font-size: 2em;
+    text-align: center;
+}
+
+.palmares{
+    background-color: #ee765e;
+    padding: 15px;
+    height: 150px;
+    width: 475px;
+    margin-left: 5px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 12px black;
+}
+.palmares:hover{
+    background-color: ;
+    box-shadow: 4px 4px 30px black;
+    font-weight: normal;
+}
+.palmares_label li{
+    margin-top: 10px;
+}
+
+.laurel{
+    float: right;
+}
+
+
+/* FENETRES DE MESSAGES 
+----------------------------------------------------------------*/
+
+#confirmation_deconnexion{
+    display: none;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 50;
+}
+#confirmation_deconnexion:target{
+    display: block;
+}
+
+#fenetre_message
+{
+    background-color: rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 50;
+}
+.msg
+{
+	padding:20px;
+    width: 500px;
+    margin: 25% auto;
+    background-color: white;
+    text-align: center;
+    font-size: 1.1em;
+	font-weight: bold;
+	color: rgb(178,94,26);
+    border-radius: 10px;
+    border: 6px rgb(160,160,160) solid;
+}
+
+.close, .abort {
+    padding: 5px;
+    margin: 15px;
+    border: solid white;
+}
+.close:hover, .abort:hover {
+    cursor: pointer;
+    border: solid rgb(178,94,26);
+    background-color: rgb(241,204,171)
+
+}

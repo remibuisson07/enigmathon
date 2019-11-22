@@ -1,0 +1,133 @@
+/*
+palamres CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+
+body{
+    font-family: 'Courier New';
+    background-color: rgb(252,152,158);
+    width: 1300px;
+    min-width: 800px;
+
+}
+
+
+
+header{
+    display : flex;
+    justify-content: space-around;
+    background-color: #416259;
+    color : #caac55;
+    align-items: center;
+    height: 60px;
+
+}
+
+.home img:first-child {
+    display: block;
+}
+
+.home img:last-child {
+    display: none; 
+}
+.home:hover img:last-child {
+    display: block;
+}
+.home:hover img:first-child {
+    display: none; 
+}
+
+.bandeau{
+    font-size : 2.5em;
+    margin-left: 50px;
+}
+
+nav
+{
+    margin-top: 30px;
+    background-color : #598579;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 45px;
+}
+
+ /*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+
+
+ /*  SPECIFIQUES
+ -------------------------------------------------------------------------- */
+
+#main {
+    margin-top: 30px;
+    margin-left: 30px;
+    width:1250px;
+    height: 600px;
+    display: flex;
+}
+
+
+.podium{
+    float: right;
+    margin-top: 3px;
+    border-radius: 30px 0px 0px 30px;
+ }
+.vide{
+    width: 600px;
+    height: 400px;
+    background-color: rgb(240,240,240);
+    padding-top: 200px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(57,63,92);
+    border-radius: 0px 30px 30px 0px;
+}
+.tableau{
+    border-collapse: collapse;
+    background-color: rgb(230,230,230);
+    width: 600px;
+    table-layout: fixed;
+ }
+
+.tableau thead{
+    background-color: rgb(253,186,82);
+}
+
+.tableau thead tr{
+    height: 60px;
+}
+
+.tableau th{
+    width: 120px;
+    font-size: 1.4em;
+    text-align: center;
+    border: 1px solid rgba(180,180,180,0.8);
+    border-bottom: 2px solid black;
+    
+ }
+ .tableau tbody{
+    display: block;
+    overflow: auto;
+    height: 540px;
+    width: 620px;
+ }
+
+ .tableau tbody tr{
+    height: 60px; 
+    color: rgb(57,63,92); 
+ }
+ .tableau tbody tr:nth-child(2n+1){
+    background-color: rgb(230,220,200);
+ }
+ 
+
+.tableau td{
+    width: 120px;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid rgba(200,200,200,0.8);
+ }
+ 

@@ -1,0 +1,46 @@
+/* portail CSS 
+--------------------------------- */
+
+body{
+	width: 1500px;
+	height: 1000px;
+	background-color: black;
+	
+}
+
+#fond{
+	width: 1300px;
+	height: 800px;
+	background-image: url(FondBienvenue72.jpg);
+	background-repeat: no-repeat;
+	background-attachment: relative;
+	position: fixed;
+	border: solid white;
+	left: 50px;
+	top: 50px;
+}
+.lettres{
+	display: flex;
+}
+
+.elt{
+	color: rgb(255,255,255,0);
+	font-size: 6em;
+	margin: 5px;
+}
+
+.elt:hover {
+	color: rgb(255,255,255,0.2);
+	cursor: default;
+}
+a{
+	text-decoration: none;
+	color: rgb(255,255,255,0);
+	font-size: 6em;
+	margin: 5px;
+}
+
+a:hover{
+	cursor: pointer;
+	color: rgb(255,255,255,0.5);
+}

@@ -1,0 +1,233 @@
+/*
+page informations personnelles CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+
+body{
+    font-family: 'Courier New';
+    background-color: #e7e0d6;
+    width: 1250px;
+    min-width: 800px;
+
+}
+
+
+
+header{
+    width: 100%;
+    display : flex;
+    justify-content: space-around;
+    background-color: #416259;
+    color : #caac55;
+    align-items: center;
+    min-height: 70px;
+
+}
+
+.home img:first-child {
+    display: block;
+}
+
+.home img:last-child {
+    display: none; 
+}
+.home:hover img:last-child {
+    display: block;
+}
+.home:hover img:first-child {
+    display: none; 
+}
+
+
+.bandeau{
+    font-size : 2.5em;
+}
+
+nav{
+    width: 100%;
+    margin-top: 30px;
+    background-color : #598579;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
+}
+
+/*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 1.3em;
+    color: rgb(50,68,89);
+    padding-left: 45px;
+}
+span{
+    font-size: 1.5em;
+    color: rgb(99, 184,221);
+}
+em{
+    font-style: italic;
+    color: gray;
+}
+
+/* SPECIFIQUES
+-------------------------------------------------------------*/
+#informatif{
+    width: 80%;
+    min-width: 800px;
+    height: 400px;
+    background-color: white;
+    border: solid black;
+    border-radius: 40px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.profil{
+    float:right;
+    border-radius: 0px 40px 40px 0px;
+}
+
+.pseudo ,.score ,.niveau{
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-left: 40px;
+    color: rgb(21,85,156);
+}
+
+.nom ,.stat{
+    padding-left: 40px;
+
+}
+.infos_connection{
+    padding-left: 40px;
+}
+
+#modificatif{
+    width: 80%;
+    min-width: 800px;
+    min-height: 100px;
+    background-color: white;
+    border: solid black;
+    border-radius: 40px;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.titre{
+    
+    width:90%;
+    margin-left: 40px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.fiche {
+    width:90%;
+    margin-left: 40px;
+    margin-top:10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    background-color: rgb(99, 184,221);
+    padding:20px;
+}
+.btn{
+    width:250px;
+    background-color: rgb(212,212,212);
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(230,230,230);
+}
+.ligne{
+    width: 100%;
+   display: table;
+   height: 40px;
+   margin-bottom: 5px;
+   margin-top: 5px;
+}
+.label{
+   
+    width: 250px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.label2{
+   
+    width: 450px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 200px;
+    font-size: 1.1em;
+    height: 40px;
+    vertical-align: middle;
+
+}
+.validation{
+    width: 50px;
+    height: 35px;
+    padding: 5px;
+    font-size: 1.1em;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+.validation:hover{
+    cursor: pointer;
+    background-color: rgb(240,240,240);
+}
+/* FENETRES DE MESSAGES
+----------------------------------------------------------------*/
+#fenetre_message {
+    background-color: rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 50;
+}
+.msg {
+    padding:20px;
+    width: 500px;
+    margin: 25% auto;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(178,94,26);
+    border-radius: 10px;
+    border: 6px rgb(160,160,160) solid;
+}
+.OK{
+    display: table-cell;
+    vertical-align: middle;
+    width: 40px;
+    height: 30px;
+    margin: auto;
+    font-weight: bold;
+    text-align: center;
+    color: #734542;
+    background-color: rgb(233,218,192);
+    border: solid white;
+    border-radius: 4px;
+}
+.OK:hover{
+    cursor: pointer;
+    border: solid rgb(178,94,26);
+    background-color: rgb(241,204,171)
+
+}

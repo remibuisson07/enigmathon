@@ -1,0 +1,182 @@
+/*
+inscription CSS
+*/
+
+/* GENERAL
+------------------------------------------------- */
+
+body{
+    font-family: 'Courier New';
+    background-color: #e7e0d6;
+    width: 1300px;
+    min-width: 800px;
+
+}
+
+
+
+#inscription{
+
+}
+
+header{
+    display : flex;
+    justify-content: space-around;
+    background-color: #416259;
+    color : #caac55;
+    align-items: center;
+    height: 60px;
+
+}
+
+.home img:first-child {
+    display: block;
+}
+
+.home img:last-child {
+    display: none; 
+}
+.home:hover img:last-child {
+    display: block;
+}
+.home:hover img:first-child {
+    display: none; 
+}
+
+.bandeau{
+    font-size : 2.5em;
+    margin-left: 50px;
+}
+
+nav
+{
+    margin-top: 30px;
+    background-color : #598579;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 45px;
+}
+
+ /*   MARQUEURS PRINCIPAUX  ------------------------------------  */
+
+h1 {
+    font-size: 1.4em;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+ /*  SPECIFIQUES
+ -------------------------------------------------------------------------- */
+ 
+
+
+
+#formulaire {
+    margin: auto;
+    margin-top: 50px;
+    width: 1300px;
+    min-height: 600px;
+    background-color: rgb(67,210,253);
+    border-radius: 30px 30px 30px 30px;
+}
+
+.illustration{
+    float: right;
+    border-radius: 0px 30px 30px 0px;
+}
+
+.fiche{
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+}
+
+
+
+
+.ligne{
+    width: 100%;
+    display: table;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 50px;
+
+}
+.label{
+    font-size: 1.2em;
+    width: 300px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.form-control{
+    font-size: 1.2em;
+    width: 350px;
+    background-color: rgb(255,252,234);
+    color: black;
+    height: 40px;
+    vertical-align: middle;
+
+}
+.erreur{
+    padding-top: 10px;
+    color: rgb(212,100,95);
+    font-size: 1.3em;
+    font-weight: normal;
+}
+.validation{
+    height: 35px;
+    width: 350px;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 1.3em;
+    padding: auto;
+    background-color: rgb(25,128,196);
+    border-radius: 20px;
+    color: black;
+}
+.validation:hover {
+    cursor: pointer;
+    color: white;
+    box-shadow: 2px 2px 2px white;
+}
+ /* FENETRES DE MESSAGES
+----------------------------------------------------------------*/
+#fenetre_message {
+    background-color: rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 50;
+}
+.msg{
+    padding:20px;
+    width: 500px;
+    margin: 25% auto;
+    background-color: white;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: rgb(178,94,26);
+    border-radius: 10px;
+    border: 6px rgb(160,160,160) solid;
+}
+.close{
+    padding: 5px;
+    margin: 15px;
+    border: solid white;
+}
+.close:hover{
+    cursor: pointer;
+    border: solid rgb(178,94,26);
+    background-color: rgb(241,204,171)
+
+}
+
+

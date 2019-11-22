@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'inscription.css' %}" />
+    <title>formulaire d'inscription</title>
+</head>
+<body>
+    <div id="inscription">
+        <header>
+            <a class="home" href="{% url 'PORTAIL' %}">
+                        <img src="{% static 'Home.png' %}"  title="retour à la page d'Accueil"/>
+                        <img src="{% static 'Homehover.png' %}"  title="retour à la page d'Accueil"/></a>
+            <div class="bandeau"> FORMULAIRE D'INSCRIPTION </div>
+        </header>
+
+
+        {% if message %}
+                <div id="fenetre_message">
+                    <div class="msg">
+                        <p> {{ message | safe}} </p>
+                        <a class="close" href="{% url 'CONNEXION' %}">OK</a>
+                    </div>
+                </div>
+        {% endif %}
+
+        <div id="formulaire">
+
+            <img class="illustration" src="{% static 'FondInscription.jpg' %}"/>
+
+
+            <form class="fiche" method="post" action="{% url 'INSCRIPTION' %}">
+                <h1> Veuillez compléter le formulaire ci-dessous</h1>
+                {% csrf_token %}
+                {% for field in formulaire %}
+
+                        <div class="ligne">
+                            <div class="label">{{ field.label_tag }}</div>
+                            <div class="box">{{ field }}</div>
+                        </div>
+
+                {% endfor %}
+
+                <div class="erreur">
+                    {{ formulaire.non_field_errors.as_text }}
+                    {% for field in formulaire %}
+                        {{ field.errors.as_text }}
+                    {% endfor %}
+                </div>
+                <input class="validation" type="submit" value="Valider mon inscription" />
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        <nav>
+            <div> Contacter l'administrateur: enigmathon@gmail.com</div>
+        </nav>
+    </footer>
+
+
+
+
+</body>
+</html>

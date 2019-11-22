@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'tableau_bord.css' %}" />
+    <title>Accueil</title>
+</head>
+
+<body>
+    <div id="tableau_bord">
+        <header>
+            <div class="menu">
+                <div class="cell_menu">
+                    <div class="titre_page">ACCUEIL</div>
+                </div>
+                <div class="cell_menu">
+                    <div class="presentation">
+                        <a href="presentation" title="lis moi!"> Explique-moi ENIGMATHON</a>
+                    </div>
+                </div>
+
+                {% if connect %}
+                    <div class="cell_menu">
+                        <div class="nom_joueur"> Bienvenue  {{ user.username }} !</div>
+                    </div>
+
+                    <div class="login">
+                        <a href="#confirmation_deconnexion" title="déconnexion">
+                            <img  src=" {% static 'LoginButtonRed.png' %}"
+                                 alt="je me déconnecte"/>
+                            <img  src=" {% static 'LoginButtonRedHover.png' %}"
+                                 alt="je me déconnecte"/>
+                        </a>
+                    </div>
+
+                {% else %}
+                    <div class="login">
+                        <a href="{% url 'CONNEXION' %}" title="connexion">
+                            <img  src=" {% static 'LoginButtonGreen.png' %}" alt="je me connecte"/>
+                            <img  src=" {% static 'LoginButtonGreenHover.png' %}" alt="je me connecte"/>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </header>
+
+
+
+        <div class="bienvenue">
+                <h1>Bienvenue sur le site ENIGMATHON !</h1>
+                <em>Le site qui vous propose de résoudre des énigmes numériques à l’aide de Python</em>
+        </div>
+
+
+        <div id="main">
+
+            <img class="brainfill" src="{% static 'brain72.jpg' %}" />
+
+            <div class="chapitres">
+
+                <div class="titre_tableau"> Accédez aux énigmes</div>
+                <div class="tableau_chapitres">
+                            {% for chapitre in chapitres %}
+                                  <a  href="{% url 'ENIGME' chapitre.id %}">
+                                        <div class="titre_chapitre" > {{chapitre.nom}} </div> </a>
+                            {% endfor %}
+                </div>
+            </div>
+         </div>
+
+        {% if connect %}
+            <div id="boxes">
+                    <a href="{% url 'INFOS' %}">
+                        <div class="infos_perso">
+                            <h3>informations personnelles</h3>
+                            <p>{{user.username}}</p>
+                            <p>score {{ joueur.score }}<span>niveau {{joueur.niveau}}</span></p>
+                        </div></a>
+                    <a href="{% url 'PALMARES' %}">
+                        <div class="palmares">
+                            <h3> le palmarès </h3>
+                            <img class="laurel" src="{% static 'laurel72.png' %}" alt="lauriers"/>
+                            <ol class="palmares_label">
+                                {% for joueur in palmares %}
+                                    <li> {{ joueur.user.username }} ..... {{ joueur.score }} pts </li>
+                                {% endfor %}
+                            </ol>
+                        </div></a>
+            </div>
+        {% endif %}
+
+
+        <br/>
+
+    </div>
+
+
+    <footer>
+        <nav>
+            <a href="{% url 'PYTHON' %}" title="infos sur Python"> A propos de Python </a>
+            <a href="https://repl.it"  target="_blank" title="ouvrir repl.it"> REPL.IT </a>
+            <a href="{% url 'A PROPOS' %}" title="à propos d'Enigmathon"> A propos d'Enigmathon </a>
+        </nav>
+    </footer>
+
+
+
+    <div id="confirmation_deconnexion">
+                <div class="msg">
+                    <p>Je confirme la déconnexion</p>
+                    <a class="close" href="{% url 'DECONNEXION' %}">OUI</a>
+                    <a class="abort" href="#Abort">NON</a>
+                </div>
+    </div>
+
+</body>
+</html>
